@@ -16,7 +16,8 @@ const { project, buttonText } = Astro.props;
 <Card class="w-[400px]" slot="preview">
     <CardHeader>
         <CardTitle>{project.data.title}</CardTitle>
-        <CardDescription>
+        <CardDescription>            
+            <img class="object-cover h-32 w-full rounded-md" src=`../images/${project.data.image}` />
             <span>{project.data.author}</span>
             <small>{project.data.published}</small>
             <h2>{project.data.description}</h2>
