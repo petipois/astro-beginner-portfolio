@@ -29,6 +29,6 @@ const { project, buttonText } = Astro.props;
         </div>
     </CardContent>
     <CardFooter class="flex justify-between">
-        <Button>{buttonText}</Button>
+        <Button href={`/articles/${project.data.slug}`}>{buttonText}</Button>
     </CardFooter>
 </Card>
