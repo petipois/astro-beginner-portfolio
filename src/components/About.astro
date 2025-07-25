@@ -1,0 +1,69 @@
+---
+import Button from "./starwind/button";
+import Heading from "./Heading.astro";
+const consultationFormLink = "/";
+import { Icon } from "astro-icon/components";
+const socialLinks = [
+    {
+        name: "LinkedIn",
+        url: "https://twitter.com/yourprofile",
+        icon: "mdi:linkedin",
+    },
+    {
+        name: "X",
+        url: "https://twitter.com/yourprofile",
+        icon: "mdi:twitter",
+    },
+    {
+        name: "Youtube",
+        url: "https://twitter.com/yourprofile",
+        icon: "mdi:youtube",
+    },
+    {
+        name: "GitHub",
+        url: "",
+        icon: "mdi:github",
+    },
+];
+---
+
+    <div class="bg-black p-32 text-white">
+        <Heading text="About Me" />
+        <p class="max-w-4xl mt-4 mb-8 text-lg">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere,
+            non perferendis vero hic, voluptates nostrum corporis quasi dolor
+            impedit magni, earum ullam quia! Adipisci quaerat, omnis velit natus
+            eaque voluptas.
+        </p>
+        <div>
+            <ul class="flex flex-wrap gap-4 mb-8">
+                {
+                    socialLinks.map((link) => (
+                        <li class="rounded-full border">
+                            <a
+                                href={link.url}
+                                class="flex items-center gap-2 text-lg hover:text-purple-400"
+                            >
+                                <Icon name={link.icon} class="w-16 h-16 p-2" />
+                            </a>
+                        </li>
+                    ))
+                }
+            </ul>
+        </div>
+        <Button
+            href={consultationFormLink}
+            class="text-2xl uppercase bg-purple-700 p-8 hover:bg-purple-800"
+            >Get a Consultation</Button
+        >
+       <div class="flex items-right justify-end mt-8">
+         <div class="max-w-xl rounded-l-xl rounded-t-xl bg-white p-8">
+            <p class="text-black text-lg">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
+                voluptatum, cumque, asperiores, facilis doloribus incidunt
+                voluptates molestiae magnam nesciunt aut.
+            </p>
+            <Button class="bg-green-600 text-white mt-4">Donate</Button>
+        </div>
+       </div>
+    </div>

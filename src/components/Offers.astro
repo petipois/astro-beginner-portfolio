@@ -1,0 +1,70 @@
+---
+import Heading from "./Heading.astro";
+
+const services = [
+    {
+        title: "Custom Website",
+        role: "Web Developer",
+        features: [
+            "Custom Website Design",
+            "Website Redesign",
+            "Website Maintenance",
+            "Website Support",
+        ],
+    },
+    {
+        title: "Software Tutor",
+        role: "1:1",
+        features: ["Basic Coding", "Website Assistance", "Bug Fixing"],
+    },
+    {
+        title: "Content Creation",
+        role: "Writer",
+        features: ["Blog Writing", "Social Media Content", "Copywriting"],
+    },
+    {
+        title: "SEO",
+        role: "Audit",
+        features: ["Site Audit", "Google rankings", "Analytics"],
+    },
+    {
+        title: "Guest Appearances & Custom tutorials",
+        role: "Guest",
+        features: [
+            "Guest Appearances",
+            "Custom Tutorials",
+            "Live Coding Sessions",
+        ],
+    },
+];
+---
+
+<div class="bg-[#532224] p-32 text-white">
+    <div class="grid grid-cols-1 md:grid-cols-2 p-8">
+        <div class="p-4">
+            <Heading text="What I Offer" />
+            <p>
+                I provide expert support to bring your project to life, boost
+                conversion metrics, and demystify complex code structures.
+            </p>
+        </div>
+
+        <div class="p-8">
+            {
+                services.map((service: any) => (
+                    <div>
+                        <h2 class="orange font-bold uppercase text-4xl">
+                            {service.title}
+                        </h2>
+                        <h3 class="text-2xl mb-8">{service.role}</h3>
+                        <ul class="mb-8">
+                            {service.features.map((feature: any) => (
+                                <li>{feature}</li>
+                            ))}
+                        </ul>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</div>

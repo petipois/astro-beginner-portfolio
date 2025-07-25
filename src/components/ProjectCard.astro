@@ -1,34 +1,42 @@
 ---
-import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-} from "@/components/starwind/card";
-
-import { Button } from "@/components/starwind/button";
-
-const { project, buttonText } = Astro.props;
+const { project } = Astro.props;
 ---
 
-<Card class="w-[400px]" slot="preview">
-    <CardHeader>
-        <CardTitle>{project.data.title}</CardTitle>
-        <CardDescription>            
-            <img class="object-cover h-32 w-full rounded-md" src=`../images/${project.data.image}` />
-            <span>{project.data.author}</span>
-            <small>{project.data.published}</small>
-            <h2>{project.data.description}</h2>
-        </CardDescription>
-    </CardHeader>
-    <CardContent class="flex flex-col gap-4">
-        <div class="flex w-full flex-col gap-2">
+<div class="grid grid-cols-1 md:grid-cols-2 text-white">
+    <!-- Image on the left -->
+    <div class="p-8">
+        <img class="w-full rounded-md" src=`../images/${project.data.image}` />
+    </div>
+    <!-- Info on the right -->
+    <div class="p-8">
+        <small>{project.data.year}</small>
+        <h2 class="orange text-4xl font-bold uppercase">
+            {project.data.title}
+        </h2>
+        <h3 class="text-2xl">{project.data.description}</h3>
+        <div class="pt-8 pb-4 max-w-lg">
             <slot />
         </div>
-    </CardContent>
-    <CardFooter class="flex justify-between">
-        <Button href={`/articles/${project.data.slug}`}>{buttonText}</Button>
-    </CardFooter>
-</Card>
+        <h3>Role: <span class="orange">{project.data.role}</span></h3>
+        <div class="flex flex-wrap gap-2 pt-4">
+            <h3>Skills Used:</h3>
+            <div class="flex">
+                {
+                    project.data.skills.map((item: any) => (
+                        <h3 class="orange">
+                            <span class="text-white">[</span>
+                            {item}
+                            <span class="text-white">]</span>
+                        </h3>
+                    ))
+                }
+            </div>
+        </div>
+        <h3>
+            Project link: <a
+                href={project.data.website}
+                class="orange underline"
+                target="_blank">{project.data.website}</a>
+        </h3>
+    </div>
+</div>

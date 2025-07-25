@@ -19,5 +19,19 @@ const articles = defineCollection({
     }),
 });
 
+
+// 3. Define your collection(s)
+const projects = defineCollection({
+    loader: glob({ pattern: "**/*.md", base: "./src/content/projects" }),
+    schema: z.object({
+        title: z.string(),
+        description: z.string(),
+        year: z.string(),
+        image:z.string(),
+        role: z.string(),
+        skills: z.array(z.string()),
+        website: z.string()
+    }),
+});
 // 4. Export a single `collections` object to register your collection(s)
-export const collections = { articles };
+export const collections = { articles, projects };

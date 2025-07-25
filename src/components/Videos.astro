@@ -1,0 +1,59 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Heading from "./Heading.astro";
+
+const videos = [
+    {
+        title: "How to Build a Portfolio Website using Astro",
+        url: "https://www.youtube.com/watch?v=example1",
+    },
+    {
+        title: "Add Google Login to Your Astro Website",
+        url: "https://www.youtube.com/watch?v=example2",
+    },
+    {
+        title: "JavaScript for Beginners",
+        url: "https://www.youtube.com/watch?v=example3",
+    },
+];
+---
+
+    <div class="bg-[#532224] p-32 text-white">
+        <Heading text="Latest Videos" />
+        <p class="max-w-4xl mt-4 mb-8 text-lg">
+            Don't miss out on my latest videos! Here, I share insights on
+            software development, SEO, and more. Check out the latest tutorials
+            and guides to enhance your skills and knowledge.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {
+                videos.map((video) => (
+                    <div class="p-4">
+                        <div class="relative z-10 h-full flex flex-col justify-between">
+                            <img
+                                src="https://placehold.co/600x800"
+                                alt={video.title}
+                                class="w-full h-[400px] object-cover border border-white border-1"
+                            />
+                            <div class="absolute inset-0 bg-black opacity-50" />
+                            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                <div class="bg-orange-500 hover:bg-orange-600 transition-colors duration-200 rounded-full p-4 cursor-pointer shadow-lg">
+                                    <svg
+                                        class="w-8 h-8 text-white ml-1"
+                                        fill="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path d="M8,5.14V19.14L19,12.14L8,5.14Z" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h2 class="text-xl mt-4">{video.title}</h2>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
